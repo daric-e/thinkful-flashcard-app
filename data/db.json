@@ -9,6 +9,11 @@
       "name": "React Router",
       "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 2
+    },
+    {
+      "id": 3,
+      "name": "Some duck",
+      "description": "Another duck test"
     }
   ],
   "cards": [
@@ -25,10 +30,7 @@
       "deckId": 1
     },
     {
-      "id": 3,
-      "front": "How do you pass data 'down' to a React child component?",
-      "back": "As properties or props",
-      "deckId": 1
+      "id": 3
     },
     {
       "front": "What path will match the follow Route?\n<Route>\n  <NotFound />\n</Route>",
@@ -48,6 +50,12 @@
       "back": "b",
       "deckId": 1,
       "id": 7
+    },
+    {
+      "front": "Ducks first card",
+      "back": "Is a happy place",
+      "deckId": 3,
+      "id": 8
     }
   ]
 }

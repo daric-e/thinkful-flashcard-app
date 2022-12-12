@@ -2,10 +2,12 @@ import React, { Fragment } from "react";
 import { Route, Switch } from "react-router-dom";
 // Components
 import DeckDisplay from "./DeckDisplay";
+import DeckForm from "./DeckForm";
 import NotFound from "./NotFound";
 import Header from "./Header";
 import Study from "./Study";
 import Home from "./Home";
+import CardForm from "./CardForm";
 
 function Layout() {
   return (
@@ -17,10 +19,16 @@ function Layout() {
             <Home />
           </Route>
           <Route exact path="/decks/new">
-            <div>Create deck form</div>
+            <DeckForm />
+          </Route>
+          <Route path="/decks/:deckId/cards/new">
+            <CardForm />
           </Route>
           <Route path="/decks/:deckId/study">
             <Study />
+          </Route>
+          <Route path="/decks/:deckId/edit">
+            <DeckForm />
           </Route>
           <Route path="/decks/:deckId">
             <DeckDisplay />

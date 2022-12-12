@@ -18,7 +18,7 @@ function Deck({ deck }) {
             <div className="card-body">
                 <div className="row justify-content-between">
                     <h3>{deck.name}</h3>
-                    <p>{`${deck.cards.length} cards`} </p>
+                    <p>{`${deck.cards.length} cards`}</p>
                 </div>
                 <p className="row">{deck.description}</p>
                 <div className="row">
