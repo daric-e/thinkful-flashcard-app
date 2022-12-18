@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import CardList from "./CardList";
 import CardForm from "./CardForm";
-import { readDeck, deleteDeck } from "../utils/api";
+import { readDeck, deleteDeck, deleteCard } from "../utils/api";
 
 function DeckDisplay() {
     const [deck, setDeck] = useState({});
@@ -30,6 +30,12 @@ function DeckDisplay() {
     const handleDelete = () => {
         if (window.confirm('Delete this deck? \n\nYou will not be able to recover it.')) {
             deleteDeck(deck.id).then(() => history.push('/'));
+        }
+    }
+
+    const handleDeleteCard = (id) => {
+        if (window.confirm('Delete this card?\n\nYou will not be able to recover it.')) {
+            deleteCard(id).then(() => triggerReload());
         }
     }
 
@@ -64,7 +70,7 @@ function DeckDisplay() {
                                 <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary mx-1"><FontAwesomeIcon icon={solid('plus')} /> Add Cards</Link>
                                 <button onClick={handleDelete} type="button" className="btn btn-danger ml-auto"><FontAwesomeIcon icon={solid('trash')} /></button>
                             </div>
-                            <CardList cards={deck.cards}/>
+                            <CardList cards={deck.cards} handleDelete={handleDeleteCard}/>
                         </div>
                     </div>
                 </Route>

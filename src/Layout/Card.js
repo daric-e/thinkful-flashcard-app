@@ -3,7 +3,7 @@ import { Link, useRouteMatch } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
-export default function Card({ card = {}, study = false, flip = false, handleNext, handleFlip, lengthOfDeck = 0, index }) {
+export default function Card({ card = {}, study = false, flip = false, handleNext, handleFlip, lengthOfDeck = 0, index, handleDelete }) {
     const { params: { deckId } } = useRouteMatch();
     return (
         <div className="card shadow-sm m-2">
@@ -19,7 +19,7 @@ export default function Card({ card = {}, study = false, flip = false, handleNex
                 <div className="row container mt-2">
                     <div className="ml-auto">
                         <Link className="btn btn-secondary mr-1" to={`/decks/${deckId}/cards/${card.id}/edit`}><FontAwesomeIcon icon={solid('pencil')} /> Edit</Link>
-                        <button type="button" className="btn btn-danger ml-1"><FontAwesomeIcon icon={solid('trash')} /></button>
+                        <button type="button" onClick={() => handleDelete(card.id)} className="btn btn-danger ml-1"><FontAwesomeIcon icon={solid('trash')} /></button>
                     </div>
                 </div>
             </div>}
